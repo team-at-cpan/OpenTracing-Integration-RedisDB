@@ -56,7 +56,7 @@ sub load {
                         'db.statement'    => join(' ', $cmd // (), @rest),
                         'db.type'         => 'redis',
                     );
-                    return $dbh->$code($cmd, @rest);
+                    return $redis->$code($cmd, @rest);
                 } catch {
                     my $err = $@;
                     $span->tag(
